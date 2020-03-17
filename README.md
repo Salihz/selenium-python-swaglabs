@@ -6,6 +6,9 @@ Toolchain used in this project is:
 - PyTest: https://docs.pytest.org/en/latest/
 
 ## Installation
-Python: https://www.python.org/downloads/
+Python: https://www.python.org/downloads/  
+Selenium Libraries: https://www.selenium.dev/documentation/en/selenium_installation/installing_selenium_libraries/
+WebDriver binaries (Chrome): https://www.selenium.dev/documentation/en/webdriver/driver_requirements/#quick-reference
+
 
 [SwagLabs]: <https://www.saucedemo.com/>
