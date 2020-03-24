@@ -11,7 +11,7 @@ class LoginPage:
     credentials_not_match_text = "Username and password do not match any user in this service"
     user_locked_out_text = "Sorry, this user has been locked out."
 
-    # methods
+    # actions
     def set_username(self, username):
         el = driver.find_element_by_id(self.user_name_id)
         el.send_keys(username)
@@ -24,6 +24,7 @@ class LoginPage:
         el = driver.find_element_by_class_name(self.login_button_class)
         el.click()
 
+    # assertions
     def error_button_exist(self):
         return driver.find_element_by_class_name(self.error_button_class) != None
 
@@ -41,3 +42,5 @@ class LoginPage:
 
     def login_button_exist(self):
         return driver.find_element_by_class_name(self.login_button_class) != None
+
+

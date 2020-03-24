@@ -10,7 +10,7 @@ from Pages.home_page import HomePage
 class TestloginPage:
     lp = LoginPage()
     hp = HomePage()
-    # @pytest.mark.skip(reason="no way of currently testing this")
+
     def testInvalidLogin(self):
         self.lp.set_username("standard_user")
         self.lp.set_password("wrong_pass")
@@ -18,7 +18,6 @@ class TestloginPage:
         assert self.lp.error_button_exist()
         assert self.lp.message_credentials_not_match_exist()
 
-    # @pytest.mark.skip(reason="no way of currently testing this")
     def testLockedOutLogin(self):
         self.lp.set_username("locked_out_user")
         self.lp.set_password("secret_sauce")
@@ -26,7 +25,6 @@ class TestloginPage:
         assert self.lp.error_button_exist()
         assert self.lp.message_user_locked_out_exist()
 
-    # @pytest.mark.skip(reason="no way of currently testing this")
     def testValidLogin(self):
         self.lp.set_username("standard_user")
         self.lp.set_password("secret_sauce")

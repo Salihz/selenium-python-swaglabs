@@ -30,14 +30,6 @@ class TestHomePage:
         self.hp.burger_menu_open()
         self.hp.reset_app_button_click()
         self.hp.x_button_click()
-        time.sleep(3)
         assert self.hp.shopping_cart_num_exist()
+        assert self.hp.session_storage_is_empty()
         
-
-        time.sleep(3)
-
-        #el = driver.find_element_by_xpath('//*[@id="inventory_container"]/div/div[1]/div[3]/button')
-        #el.click()
-        
-        #print(driver.execute_script('return window.sessionStorage.getItem("cart-contents")'))
-        #sessionStorage.setItem('key', 'value');
