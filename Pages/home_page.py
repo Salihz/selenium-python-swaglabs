@@ -12,6 +12,9 @@ class HomePage:
     reset_app_button_id = "reset_sidebar_link"
     shopping_cart_num_xpath = '//*[@id="shopping_cart_container"]/a/span'
     x_button_class = "bm-cross-button"
+    about_button_id = "about_sidebar_link"
+    
+    about_url = "https://saucelabs.com/"
 
     # actions
     def burger_menu_open(self):
@@ -33,6 +36,11 @@ class HomePage:
         WebDriverWait(driver, timeout=3).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, self.x_button_class)))
         el.click()
 
+    def about_button_click(self):
+        el = driver.find_element_by_id(self.about_button_id)
+        WebDriverWait(driver, timeout=3).until(expected_conditions.element_to_be_clickable((By.ID, self.about_button_id)))
+        el.click()
+
     # assertions
     def burger_menu_exist(self):
         return driver.find_element_by_class_name(self.burger_menu_class) != None
@@ -49,3 +57,9 @@ class HomePage:
         
     def session_storage_is_empty(self):
         return driver.execute_script('return window.sessionStorage.getItem("cart-contents")') == None
+
+    def check_about_url(self):
+        if(driver.current_url == self.about_url):
+            return True
+        else:
+            return False
