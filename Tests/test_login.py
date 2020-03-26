@@ -15,6 +15,7 @@ class TestloginPage:
         self.lp.set_username("standard_user")
         self.lp.set_password("wrong_pass")
         self.lp.login_button_click()
+
         assert self.lp.error_button_exist()
         assert self.lp.message_credentials_not_match_exist()
 
@@ -22,6 +23,7 @@ class TestloginPage:
         self.lp.set_username("locked_out_user")
         self.lp.set_password("secret_sauce")
         self.lp.login_button_click()
+
         assert self.lp.error_button_exist()
         assert self.lp.message_user_locked_out_exist()
 
@@ -29,6 +31,7 @@ class TestloginPage:
         self.lp.set_username("standard_user")
         self.lp.set_password("secret_sauce")
         self.lp.login_button_click()
+        
         assert self.hp.burger_menu_exist()
         assert self.hp.shopping_cart_exist()
 
