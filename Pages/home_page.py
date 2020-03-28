@@ -14,6 +14,7 @@ class HomePage:
     x_button_class = "bm-cross-button"
     about_button_id = "about_sidebar_link"
     bike_light_id = "item_0_title_link"
+    shoping_cart_id = "shopping_cart_container"
 
     about_url = "https://saucelabs.com/"
 
@@ -53,6 +54,10 @@ class HomePage:
 
     def remove_from_cart_home_page(self, n):
         el = driver.find_element_by_xpath('//*[@class="inventory_item"][' + str(n) + ']//button')
+        el.click()
+
+    def open_cart(self):
+        el = driver.find_element_by_id(self.shoping_cart_id)
         el.click()
 
 
