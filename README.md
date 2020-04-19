@@ -1,7 +1,7 @@
 # selenium-python-swaglabs
 
 This is a sample project with Selenium tests for [SwagLabs] website.  
-Toolchain used for this project is: 
+Tools used for this project is: 
 - Selenium (Python): https://www.selenium.dev/
 - PyTest: https://docs.pytest.org/en/latest/
 
