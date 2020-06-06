@@ -21,7 +21,6 @@ class TestHomePage:
         assert self.hp.shopping_cart_num_exist()
         assert self.hp.session_storage_is_empty()
 
-    #@pytest.mark.skip(reason="no way of currently testing this")
     def testLogout(self):
         self.hp.burger_menu_open()
         self.hp.logout_button_click()
