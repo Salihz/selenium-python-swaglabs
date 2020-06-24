@@ -1,19 +1,16 @@
 import pytest
 from Pages.base_page import driver
-from Pages.base_page import stp
+from Pages.base_page import stp_home
 from Pages.base_page import reload
 from Pages.login_page import LoginPage
 from Pages.home_page import HomePage
 
-@pytest.mark.usefixtures("stp", "reload")
+@pytest.mark.usefixtures("stp_home", "reload")
 class TestHomePage:
     lp = LoginPage()
     hp = HomePage()
     def testResetAppState(self):
         driver.execute_script('window.sessionStorage.setItem("cart-contents","[4,0,1]")')
-        self.lp.set_username("standard_user")
-        self.lp.set_password("secret_sauce")
-        self.lp.login_button_click()
         self.hp.burger_menu_open()
         self.hp.reset_app_button_click()
         self.hp.x_button_click()
@@ -30,9 +27,7 @@ class TestHomePage:
         assert self.lp.login_button_exist()
 
     def testAbout(self):
-         self.lp.set_username("standard_user")
-         self.lp.set_password("secret_sauce")
-         self.lp.login_button_click()
+         driver.get("https://www.saucedemo.com/inventory.html")
          self.hp.burger_menu_open()
          self.hp.about_button_click()
          

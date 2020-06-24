@@ -1,6 +1,6 @@
 import pytest
 from Pages.base_page import driver
-from Pages.base_page import stp
+from Pages.base_page import stp_home
 from Pages.base_page import reload
 from Pages.login_page import LoginPage
 from Pages.home_page import HomePage
@@ -9,7 +9,7 @@ from Pages.checkout_pages import CheckoutPages
 
 import time
 
-@pytest.mark.usefixtures("stp", "reload")
+@pytest.mark.usefixtures("stp_home", "reload")
 class TestShopping:
     lp = LoginPage()
     hp = HomePage()
@@ -17,9 +17,6 @@ class TestShopping:
     cp = CheckoutPages()
 
     def testAddToCart(self):
-        self.lp.set_username("standard_user")
-        self.lp.set_password("secret_sauce")
-        self.lp.login_button_click()
         self.hp.add_to_cart_from_home_page(1)
         self.hp.add_to_cart_from_home_page(3)
         self.hp.add_to_cart_from_home_page(5)

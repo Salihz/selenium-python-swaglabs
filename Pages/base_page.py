@@ -10,6 +10,13 @@ def stp():
     yield driver
     driver.quit()
 
+@pytest.fixture(scope="session")
+def stp_home():
+    driver.maximize_window()
+    driver.get("https://www.saucedemo.com/inventory.html")
+    yield driver
+    driver.quit()
+
 @pytest.fixture()
 def reload():
     driver.refresh()
