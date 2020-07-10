@@ -49,4 +49,5 @@ class TestShopping:
         self.cp.finish_button_click()
 
         assert self.cp.check_success_message()
+        assert self.cp.check_success_url()
         assert self.hp.shopping_cart_num_exist()

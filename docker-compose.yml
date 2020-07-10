@@ -1,0 +1,42 @@
+version: "3"
+networks:
+  selenium-grid:
+    external: true
+
+services:
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+
+  chrome:
+    image: selenium/node-chrome:latest
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    links:
+      - selenium-hub
+
+  firefox:
+    image: selenium/node-firefox:latest
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    links:
+      - selenium-hub
+
+  selenium_python_requests:
+    build: ./
+    network_mode: "host"
+    depends_on:
+      - selenium-hub
+    command: ./wait-for-grid.sh pytest

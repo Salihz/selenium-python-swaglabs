@@ -13,7 +13,9 @@ class CheckoutPages:
     last_name = "Cattaneo"
     postal_code = "21000"
 
+    order_dispatched_css = 'complete-text'
     order_dispatched_text = 'Your order has been dispatched, and will arrive just as fast as the pony can get there!'
+    order_dispatched_url = 'https://www.saucedemo.com/checkout-complete.html'
 
     # actions
 
@@ -42,4 +44,7 @@ class CheckoutPages:
         el.click()
 
     def check_success_message(self):
-        return driver.find_element_by_xpath('//*[text()="' + self.order_dispatched_text + '"]') != None
+        return driver.find_element_by_class_name(self.order_dispatched_css).text == self.order_dispatched_text
+
+    def check_success_url(self):
+        return driver.current_url == self.order_dispatched_url
