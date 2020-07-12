@@ -21,7 +21,7 @@ pipeline {
                 sh 'docker-compose build'
                 sh 'docker-compose up'
                 // Copy allure results to Jenkins host so the report can be generated
-                sh 'docker cp restful_booker_test_container:/home/python_API_testing/allure-results "${WORKSPACE}/allure-results"'
+                sh 'docker cp restful_booker_test_container:/home/selenium_python_requests/allure-results "${WORKSPACE}/allure-results"'
             }
         }
 
