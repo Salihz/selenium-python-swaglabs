@@ -34,7 +34,7 @@ services:
     links:
       - selenium-hub
 
-  selenium_python_requests:
+  selenium_python_swaglabs:
     build: ./
     network_mode: "host"
     depends_on:
