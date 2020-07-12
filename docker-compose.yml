@@ -39,4 +39,4 @@ services:
     network_mode: "host"
     depends_on:
       - selenium-hub
-    command: ./wait-for-grid.sh pytest
+    command: ./wait-for-grid.sh pytest --alluredir=./allure-results
