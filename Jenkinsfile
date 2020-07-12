@@ -21,7 +21,7 @@ pipeline {
                 sh 'docker-compose build'
                 sh 'docker-compose up --abort-on-container-exit'
                 // Copy allure results to Jenkins host so the report can be generated
-                sh 'docker cp restful_booker_test_container:/home/selenium_python_swaglabs/allure-results "${WORKSPACE}/allure-results"'
+                sh 'docker cp selenium_python_swaglabs_container:/home/selenium_python_swaglabs/allure-results "${WORKSPACE}/allure-results"'
             }
         }
 

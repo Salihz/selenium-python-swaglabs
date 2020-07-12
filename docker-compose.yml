@@ -37,6 +37,7 @@ services:
   selenium_python_swaglabs:
     build: ./
     network_mode: "host"
+    container_name: selenium_python_swaglabs_container
     depends_on:
       - selenium-hub
     command: ./wait-for-grid.sh pytest --alluredir=./allure-results
